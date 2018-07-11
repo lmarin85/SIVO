@@ -1,0 +1,367 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family:'meta';
+    src: url('fonts/meta.eot');
+    src: url('fonts/meta.eot?#iefix') format('embedded-opentype'),
+    url('fonts/meta.woff') format('woff'),
+    url('fonts/meta.ttf') format('truetype'),
+    url('fonts/meta.svg#junctionregularRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#contenedor{
+	width:886px;
+	background-image:url(../images/bg_cont.png);
+	background-position:right;
+	background-repeat:repeat-y;
+	height:546px;
+	margin: auto;
+}
+.header{
+	height:45px;
+	background-image:url(../images/01.png);
+	width: 872px;
+	margin-top: 4px;
+}
+#left{
+	width:168px;
+	height:462px;
+	background-color:#062c3f;
+	float:left;
+}
+#right{
+	width:200px;
+	height:462px;
+	background-color:#062c3f;
+	float:left;
+}
+.footer{
+	height:45px;
+	background-image:url(../images/02.png);
+	float:left;
+	width:872px;
+	margin: 0px;
+}
+.sombra{
+	width:11px;
+	height:462px;
+	float:left;
+	z-index:1;
+}
+.imagen{
+	width:704px;
+	height:462px;
+	background-image:url(../images/fondo_2014.jpg);
+	float:left;
+}
+.logo{
+	width: 142px;
+	height: 54px;
+	text-align: center;
+	background-color: #052433;
+	z-index: 2000;
+	position: absolute;
+	margin-top: 0px;
+	padding-left: 3px;
+	top: 65px;
+}
+.logo2{
+	width:164px;
+	height:41px;
+	margin-left:0px;
+	margin-top:0px;
+	float:left;
+	text-align:justify;
+	margin-bottom: 13px;
+	margin-right: 0px;
+}
+.logo3{
+	width:122px;
+	height:41px;
+	margin-left:20px;
+	margin-top:9px;
+	float:left;
+	text-align:center;
+}
+.log{
+	width:136px;
+	height:136px;
+	margin-left:5px;
+	margin-top:160px;
+	/*margin-top:100px;*/
+	float:left;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFF;
+	font-weight:bold;
+	font-size:11px;
+}
+.log #button{
+	background-color:#809800;
+	color:#FFF;
+}
+.menu{
+	float:left;
+	height:45px;
+	margin-left:215px;
+	width:680px;
+}
+.info_footer{
+	color: #6997AF;
+    float: right;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 8px;
+    margin-right: 15px;
+    margin-top: 15px;
+	/*
+	LMARIN 20130904
+	float:right;
+	margin-right:17px;
+	margin-top:26px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#6997af;
+	font-size:8px;*/
+}
+.fecha_cambio{
+	margin-left: 155px;
+    margin-top: -11px;
+}
+.titu_footer{
+	float:left;
+	font-size:21px;
+	color:#FFF;
+	margin-left:221px;
+	margin-top:9px;
+	font-family: 'meta-normal';
+}
+.info_imagen{
+	font-family: meta-normal;
+	margin-top: 344px;
+	margin-left: 5px;
+	font-size: 19px;
+	color: white;
+	float: left;
+
+}
+.info_imagen2{
+	font-family: meta-normal;
+	margin-top: 325px;
+	margin-left: -35px;
+	font-size: 19px;
+	color: white;
+	float: left;
+
+}
+.blanco{
+	width:680px;
+	height:430px;
+	background-color:#FFF;
+	background-image:url(../images/fondo_bn.jpg);
+	float:left;
+	margin:17px;
+	padding:9px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+#txt1{
+	-webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -o-border-radius: 5px 5px 0px 0px;
+    -ms-border-radius: 5px 5px 0px 0px;
+    -khtml-border-radius: 5px 5px 0px 0px;
+	color:#FFFFFF;
+	font-family:Helvetica, Arial, sans-serif;
+	font-size:10px;
+	font-weight:bold;
+	height:13px;
+	padding:4px;
+}
+#txt2{
+	color:#373737;
+	font-family:Helvetica, Arial, sans-serif;
+	font-size:10px;
+	font-weight:bold;
+	height:13px;
+	padding:4px;
+}
+#txt3{
+	color:#373737;
+	font-family:Helvetica, Arial, sans-serif;
+	font-size:10px;
+	font-weight:lighter;
+	height:13px;
+	padding:4px;
+}
+/*------menu--------*/
+ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+ul li{
+	padding:0;
+	float:left;
+}
+ul li a{
+	display:block;
+	/*width:101px;*/
+	height:34px;
+	text-decoration:none;
+	color:#FFFFFF;
+	font-family:Helvetica, Arial, sans-serif;
+	font-size:10px;
+	font-weight:bold;
+	padding-top:21px;
+	padding-left:17px;
+	padding-right:17px;
+}
+ul li a:hover{
+	background-position:bottom left;
+}
+#inicio{
+	background-image:url(../images/menu.jpg);
+}
+
+#menu { background-image:url(nav_bg.png); background-repeat:repeat-x; height:26px; width:425px; margin:auto; padding-left:60px; }
+
+#nav { list-style:none; }
+
+#nav li { float:left; background-image:url(nav_li_bg.png); background-repeat:no-repeat; background-position:right; }
+
+#nav li a { 
+display: block;
+padding: 15px 21px 8px 21px;
+text-decoration: none;
+color: #fff;
+text-transform: uppercase;
+font-weight: bold;
+background-color: transparent;
+text-align: center;
+border-right: 1px solid #487696;}
+
+#nav li a:hover { 
+background-color: #8DA400; }
+
+/* Submenu */
+
+#nav ul.submenu { position:absolute; list-style:none; margin-top:-13px;}
+
+#nav ul.submenu li { float:left; background-image:none; background-color:#738602; }
+#nav ul.submenu li a { height:17px;padding: 9px 18px 9px 18px;border-right: 1px solid #99b202;  }
+#nav ul.submenu li a:hover { height:17px;padding: 9px 18px 9px 18px; }
+
+/* Subsubmenu */
+
+#nav ul.subsubmenu { position:relative; list-style:none;  margin-left:0px; margin-top:0px;}
+
+#nav ul.subsubmenu li { float:none; background-image:none;background-color:#333333;}
+#nav ul.subsubmenu li a { font-size:10px;}
+
+/* tablas con scrol */
+
+#thead {
+background: #008488;
+color:#FFF;}
+
+.even {
+/**background on alternating table rows**/
+background-color: #E4ECEE}
+
+#scrolling {
+/**allow ample width for table, padding and borders**/
+/**adjust as needed. If no height is declared, scrollbar won't appear**/
+height: 230px;
+/**vertical scrollbar**/
+overflow-y:scroll;
+}
+
+#scrolling_pagos{
+/**allow ample width for table, padding and borders**/
+/**adjust as needed. If no height is declared, scrollbar won't appear**/
+height: 85px;
+/**vertical scrollbar**/
+overflow-y:scroll;
+}
+#scrolling_pagos_boleta{
+height: 100px;
+width: 100%; 
+overflow-x: hidden;
+overflow-y: scroll;
+}
+#scrolling_articulos {
+/**allow ample width for table, padding and borders**/
+/**adjust as needed. If no height is declared, scrollbar won't appear**/
+height: 230px;
+/**vertical scrollbar**/
+overflow-y:scroll;
+
+}
+#scrolling_articulos_buscar {
+/**allow ample width for table, padding and borders**/
+/**adjust as needed. If no height is declared, scrollbar won't appear**/
+height: 180px;
+/**vertical scrollbar**/
+overflow-y:scroll;
+}
+
+#scrolling_articulos_multiofertas {
+/**allow ample width for table, padding and borders**/
+/**adjust as needed. If no height is declared, scrollbar won't appear**/
+height: 90px;
+/**vertical scrollbar**/
+overflow-y:scroll;
+}
+
+#scrolling_entrega_pedido {
+/**allow ample width for table, padding and borders**/
+/**adjust as needed. If no height is declared, scrollbar won't appear**/
+height: 320px;
+/**vertical scrollbar**/
+overflow-y:scroll;
+width: 100%;
+}
+#boleta
+{
+height: 300px;
+width: 100%;
+}
+
+#scrolling_liberacion {
+/**allow ample width for table, padding and borders**/
+/**adjust as needed. If no height is declared, scrollbar won't appear**/
+height: 90px;
+/**vertical scrollbar**/
+overflow-y:scroll;
+width: 100%;
+}
+
+#scrolling_pedido{
+/**allow ample width for table, padding and borders**/
+/**adjust as needed. If no height is declared, scrollbar won't appear**/
+height: 125px;
+/**vertical scrollbar**/
+overflow-y:scroll;}
+
+/* mensaje de espera */
+#scrolling_convenios{
+height: 80px;
+/**vertical scrollbar**/
+overflow-y:scroll;
+}
+#scrolling_boletas
+height: 300px;
+}
+#loading{ 
+text-align:center; 
+width:100%;
+margin:0px auto;
+  -moz-border-radius-bottomright:5px;
+  -moz-border-radius-bottomleft:5px;
+  -webkit-border-bottom-right-radius:5px;
+  -webkit-border-bottom-left-radius:5px;
+}

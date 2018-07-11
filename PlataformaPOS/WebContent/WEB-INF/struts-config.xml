@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+         <form-bean name="usuarioForm" type="cl.gmo.pos.venta.web.forms.UsuarioForm"/>
+         <form-bean name="busquedaPedidosForm" type="cl.gmo.pos.venta.web.forms.BusquedaPedidosForm"/>
+         <form-bean name="busquedaPresupuestosForm" type="cl.gmo.pos.venta.web.forms.BusquedaPresupuestosForm"/>
+         <form-bean name="busquedaConveniosForm" type="cl.gmo.pos.venta.web.forms.BusquedaConveniosForm"/>
+         <form-bean name="menuForm" type="cl.gmo.pos.venta.web.forms.MenuForm"/>
+         <form-bean name="ventaDirectaForm" type="cl.gmo.pos.venta.web.forms.VentaDirectaForm"/>
+         <form-bean name="ventaPedidoForm" type="cl.gmo.pos.venta.web.forms.VentaPedidoForm"/>
+         <form-bean name="clienteForm" type="cl.gmo.pos.venta.web.forms.ClienteForm"/>
+         <form-bean name="busquedaProductosForm" type="cl.gmo.pos.venta.web.forms.BusquedaProductosForm"/>
+    	 <form-bean name="busquedaClientesForm" type="cl.gmo.pos.venta.web.forms.BusquedaClientesForm"/>
+    	 <form-bean name="graduacionesForm" type="cl.gmo.pos.venta.web.forms.GraduacionesForm" />
+    	 <form-bean name="contactologiaForm" type="cl.gmo.pos.venta.web.forms.ContactologiaForm" />
+    	 <form-bean name="seleccionPagoForm" type="cl.gmo.pos.venta.web.forms.SeleccionPagoForm" />
+    	 <form-bean name="presupuestoForm" type="cl.gmo.pos.venta.web.forms.PresupuestoForm" />
+    	 <form-bean name="medicoForm" type="cl.gmo.pos.venta.web.forms.MedicoForm"/>
+    	 <form-bean name="busquedaMedicoForm" type="cl.gmo.pos.venta.web.forms.BusquedaMedicoForm"/>
+    	 <form-bean name="busquedaLiberacionesForm" type="cl.gmo.pos.venta.web.forms.BusquedaLiberacionesForm"/>
+    	 <form-bean name="listadoTotalDiaForm" type="cl.gmo.pos.venta.web.forms.ListadoTotalDiaForm"/>
+    	 <form-bean name="listadoBoletasForm" type="cl.gmo.pos.venta.web.forms.ListadoBoletasForm"/>
+    	 <form-bean name="listadoPresupuestosForm" type="cl.gmo.pos.venta.web.forms.ListadoPresupuestosForm"/>
+    	 <form-bean name="fichaClienteForm" type="cl.gmo.pos.venta.web.forms.FichaClienteForm"/>
+    	 <form-bean name="informeOpticoForm" type="cl.gmo.pos.venta.web.forms.InformeOpticoForm"/>
+    	 <form-bean name="informeBusquedaProductoForm" type="cl.gmo.pos.venta.web.forms.InformeBusquedaProductoForm"/>
+    	 <form-bean name="listadoTrabajosPendientesForm" type="cl.gmo.pos.venta.web.forms.ListadoTrabajosPendientesForm"/>
+    	 <form-bean name="copiaGuiaBoletaForm" type="cl.gmo.pos.venta.web.forms.CopiaGuiaBoletaForm"/>
+    	 <form-bean name="suplementosForm" type="cl.gmo.pos.venta.web.forms.SuplementosForm"/>
+		 <form-bean name="devolucionForm" type="cl.gmo.pos.venta.web.forms.DevolucionForm"/> 
+		 <form-bean name="entregaPedidoForm" type="cl.gmo.pos.venta.web.forms.EntregaPedidoForm"/>
+		 <form-bean name="cambioFolioForm" type="cl.gmo.pos.venta.web.forms.CambioFolioForm"/>
+ 		 <form-bean name="historialRequerimientosForm" type="cl.gmo.pos.venta.web.forms.HistorialRequerimientosForm"/>
+		 
+    </form-beans>
+    
+    <global-exceptions>
+	    <!-- <exception
+	      key="error.global.mesage"
+	      type="java.lang.NullPointerException"
+	      path="/redirect.jsp" /> -->
+	</global-exceptions>
+
+    <global-forwards>
+        <forward name="index"  path="/jsp/login/index.jsp"/>
+        <forward name="menu"  path="/Menu.do?method=CargaMenu"/>        
+    </global-forwards>
+
+   	<action-mappings>  
+    	<action path="/BusquedaConvenios"
+    	type="cl.gmo.pos.venta.web.actions.BusquedaConveniosDispatchActions"
+    	validate="false"
+    	parameter="method"
+    	scope="session"
+    	name="busquedaConveniosForm">
+    		<forward name="busqueda" path="/jsp/venta/busqueda_convenios.jsp"/>
+    		<forward name="seleccion" path="/jsp/venta/convenios.jsp"/>
+    	</action>
+    	
+    	<action path="/BusquedaPedidos"
+    	type="cl.gmo.pos.venta.web.actions.BusquedaPedidosDispatchAction"
+    	validate="false"
+    	parameter="method"
+    	scope="request"
+    	name="busquedaPedidosForm">
+    		<forward name="busqueda_pedido" path="/jsp/venta/busqueda_pedidos.jsp"/>
+    	</action>
+    	
+    	<action path="/BusquedaPresupuestos"
+    	type="cl.gmo.pos.venta.web.actions.BusquedaPresupuestosDispatchActions"
+    	validate="false"
+    	parameter="method"
+    	scope="request"
+    	name="busquedaPresupuestosForm">
+    		<forward name="busqueda_presupuesto" path="/jsp/venta/busqueda_presupuestos.jsp"/>
+    	</action>
+           
+    	<action path="/Presupuesto"
+        type="cl.gmo.pos.venta.web.actions.PresupuestoDispatchActions"
+        scope="session"
+        validate="false"
+        parameter="method"
+        name="presupuestoForm">
+        	<forward name="presupuesto" path="/jsp/venta/presupuesto.jsp"/>
+        	<forward name="lista_presupuestos" path="/jsp/venta/presupuesto_clientes.jsp"/>
+        	<forward name="a_encargo" path="/VentaPedido.do?method=IngresaVentaPedidoDesdePresupuesto" />
+        </action>        
+        
+        <action path="/BusquedaMedicos"
+        type="cl.gmo.pos.venta.web.actions.BusquedaMedicosActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="busquedaMedicoForm">
+        	<forward name="buscarMedico" path="/jsp/mantenedores/busquedaMedico.jsp"/>
+        </action>
+        
+        <action path="/Medico"
+        type="cl.gmo.pos.venta.web.actions.MedicoDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="medicoForm">
+        	<forward name="medico" path="/jsp/mantenedores/medico.jsp"/>
+        </action>
+        
+        
+     <action path="/Index"  
+        type="cl.gmo.pos.venta.web.actions.LoginActions"
+        scope="request"
+        parameter="method"
+        name="usuarioForm">
+            <forward name="carga" path="/jsp/login/index.jsp"/>
+            <forward name="selectsucursal" path="/Menu.do?method=cargaSucursal"/>
+            <forward name="falla" path="/jsp/login/index.jsp"/>
+        </action> 
+        
+        <action path="/Suplementos"  
+        type="cl.gmo.pos.venta.web.actions.SuplementoDispatchActions"
+        scope="request"
+        parameter="method"
+        name="suplementosForm">
+            <forward name="carga" path="/jsp/venta/agrega_suplementos.jsp"/>
+        </action> 
+        
+     <action path="/Menu"  
+        type="cl.gmo.pos.venta.web.actions.MenuDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="menuForm">
+        	<forward name="cargasucursal" path="/jsp/login/seleccion_sucursal.jsp"/>
+        	<forward name="success" path="/Menu.do?method=CargaMenu"/>
+            <forward name="venta" path="/jsp/login/menu_principal.jsp"/>
+            <forward name="caja" path="/jsp/venta/login_caja.jsp"/>
+            <forward name="error" path="/jsp/login/index.jsp"/>
+            <forward name="tablas" path=""/>
+            <forward name="compras" path=""/>
+            <forward name="almacen" path=""/>
+            <forward name="taller" path=""/>
+            <forward name="gestion" path=""/>
+            <forward name="tesoreria" path=""/>
+            <forward name="menu" path="/jsp/login/menu_principal.jsp"/>
+        </action> 
+        
+        <action path="/VentaDirecta"
+        type="cl.gmo.pos.venta.web.actions.VentaDirectaDispatchActions"
+        scope="session"
+        validate="false"
+        parameter="method"
+        name="ventaDirectaForm">
+        	<forward name="cargaCaja" path="/jsp/venta/carga_caja.jsp"/>
+        	<forward name="carga" path="/jsp/venta/venta_directa.jsp"/>
+        	<forward name="ventaDirecta" path="/jsp/venta/carga_caja.jsp"/>
+            <forward name="pago" path="/jsp/venta/seleccion_pago.jsp"/>
+            <forward name="producto" path="/jsp/venta/busqueda_productos.jsp"/>
+            <forward name="directa" path="/jsp/venta/venta_directa.jsp"/>
+            <forward name="generaVenta" path="/SeleccionPago.do?method=cargaFormulario"/>
+        </action>
+        
+        <action path="/VentaPedido"
+        type="cl.gmo.pos.venta.web.actions.VentaPedidoDispatchActions"
+        scope="session"
+        validate="false"
+        parameter="method"
+        name="ventaPedidoForm">
+            <forward name="pedido" path="/jsp/venta/venta_pedido.jsp"/>
+            <forward name="pago" path="/jsp/venta/seleccion_pago.jsp"/>
+            <forward name="busqueda" path="/jsp/venta/busqueda_productos.jsp"/>
+            <forward name="generaVenta" path="/SeleccionPago.do?method=cargaFormulario"/>
+            <forward name="pedidoCliente" path="/jsp/venta/pedido_clientes.jsp"/>
+            <forward name="confirmacion_producto" path="/jsp/venta/producto_confirmacion.jsp"></forward>
+            <forward name="adicional_arcli" path="/jsp/venta/adicionales_arcli.jsp"></forward>
+            <forward name="entrega" path="/Devolucion.do?method=IngresaEntregaDesdePedido"></forward>
+            <forward name="historial_encargo" path="/jsp/venta/historial_encargo.jsp"></forward>
+            <forward name="encargo_padre" path="/jsp/venta/encargo_padre.jsp"></forward>             
+            <forward name="valida_cupon" path="/jsp/venta/valida_cupon.jsp"></forward>   
+            <forward name="valida_usuario_vp" path="/jsp/venta/valida_usuario.jsp"></forward>            
+                     
+        </action>
+        
+        <action path="/Cliente"
+        type="cl.gmo.pos.venta.web.actions.ClienteDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="clienteForm">
+            <forward name="cliente" path="/jsp/mantenedores/cliente.jsp"/>
+            <forward name="pedido" path="/jsp/venta/venta_pedido.jsp"/>
+            <forward name="success" path="/jsp/mantenedores/cliente.jsp"/>
+             <forward name="busqueda" path="/jsp/mantenedores/busquedaGiro.jsp"/>
+        </action>
+        
+        <action path="/BusquedaProductos"
+        type="cl.gmo.pos.venta.web.actions.BusquedaProductosDispatchActions"
+        scope="session"
+        validate="false"
+        parameter="method"
+        name="busquedaProductosForm">
+            <forward name="busqueda" path="/jsp/venta/busqueda_productos.jsp"/>
+            <forward name="busqueda_directa" path="/jsp/venta/busqueda_productos_directa.jsp"/>
+            <forward name="busqueda_multioferta" path="/jsp/venta/busqueda_productos_multioferta.jsp"/>
+        </action>
+        
+        <action path="/BusquedaProductosMultiOfertas"
+        type="cl.gmo.pos.venta.web.actions.BusquedaProductosMultiOfertasDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="busquedaProductosForm">
+            <forward name="busqueda" path="/jsp/venta/busqueda_multiofertas.jsp"/>
+        </action>									  
+        
+        <action path="/BusquedaClientes"
+        type="cl.gmo.pos.venta.web.actions.BusquedaClientesDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="busquedaClientesForm">
+        	<forward name="busqueda" path="/jsp/venta/busqueda_clientes.jsp"/>
+        </action>
+        
+        <action path="/Contactologia"
+        type="cl.gmo.pos.venta.web.actions.ContactologiaDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="contactologiaForm">
+        	<forward name="contactologia" path="/jsp/mantenedores/cliente_graduacion_contactologia.jsp"/>
+        </action>
+        
+        <action path="/Graduaciones"
+        type="cl.gmo.pos.venta.web.actions.GraduacionesDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="graduacionesForm">
+        	<forward name="graduacion" path="/jsp/mantenedores/cliente_graduacion.jsp"/>
+        	<forward name="contactologia" path="/jsp/mantenedores/cliente_graduacion_contactologia.jsp"/>
+        </action>
+        
+        <action path="/SeleccionPago"
+        type="cl.gmo.pos.venta.web.actions.SeleccionPagoDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="seleccionPagoForm">
+        	<forward name="pago" path="/jsp/venta/seleccion_pago.jsp"/>
+        	<forward name="autorizador" path="/jsp/venta/autorizador_descuento.jsp"/>
+        	
+			<!--FECHA : 20140407
+			 * DEVELOPER : @LMARIN 									 
+			 * SOLICITANTE : OPERACIONES
+			 * DESCRIPCION :Se modifica para restringir las formas de pago y anulacions -->  
+			 
+        	<forward name="reimprime_boleta" path="/jsp/venta/reasigna_numero_boleta.jsp"/>
+        	<forward name="autorizador_forma_pago" path="/jsp/venta/autorizador_descuento_fpago.jsp"/>
+        	<forward name="cargaMostrarPagosBoletas" path="/jsp/venta/mostrar_pagos_boleta.jsp"/>
+        	<forward name="cargaMostrarPagosBoletasAlbaranes" path="/jsp/mantenedores/mostrar_pagos_boleta_albaranes.jsp"/>
+        	<forward name="pago_boleta" path="/jsp/venta/mostrar_pagos_boleta.jsp"/>
+        	<forward name="plantilla_boleta" path="/jsp/venta/plantilla_boleta.jsp"/>
+        	<forward name="plantilla_guia" path="/jsp/venta/plantilla_guia.jsp"/>
+        	<forward name="pago_devolucion" path="/Devolucion.do?method=realizaDevolucion"/>
+        	<forward name="valida_dto_cliente" path="/jsp/venta/valida_dto_cliente.jsp"/>
+        </action>
+        
+        <action path="/Liberaciones"
+	        type="cl.gmo.pos.venta.web.actions.BusquedaLiberacionesDispatchActions"
+	        scope="session"
+	        validate="false"
+	        parameter="method"
+	        name="busquedaLiberacionesForm">
+        	<forward name="liberaciones" path="/jsp/venta/liberacion_encargos.jsp"></forward>
+        </action>
+        
+        <action path="/EntregaPedido"
+	        type="cl.gmo.pos.venta.web.actions.EntregaPedidosDispatchActions"
+	        scope="request"
+	        validate="false"
+	        parameter="method"
+	        name="entregaPedidoForm">
+	        	<forward name="entrega_pedido" path="/jsp/mantenedores/entrega_pedidos.jsp"></forward>
+	        	<forward name="entrega_busqueda_pedido" path="/jsp/mantenedores/busquedaEntregaPedidos.jsp"></forward>
+        </action>
+        
+        <action path="/ListadoTotalDia"
+	        type="cl.gmo.pos.venta.web.actions.ListadoTotalDiaDispatchActions"
+	        scope="request"
+	        validate="false"
+	        parameter="method"
+	        name="listadoTotalDiaForm">
+	        	<forward name="listado_total_dia" path="/jsp/reportes/listado_total_dia.jsp"></forward>
+        </action>
+        
+        <action path="/ListadoBoletas"
+	        type="cl.gmo.pos.venta.web.actions.ListadoBoletasDispatchActions"
+	        scope="session"
+	        validate="false"
+	        parameter="method"
+	        name="listadoBoletasForm">
+	        	<forward name="listado_boletas" path="/jsp/reportes/listado_boletas.jsp"></forward>
+        </action>
+        
+        <action path="/ListadoPresupuestos"
+        type="cl.gmo.pos.venta.web.actions.ListadoPresupuestosDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="listadoPresupuestosForm">
+        	<forward name="listado_presupuestos" path="/jsp/reportes/listado_presupuestos.jsp"></forward>
+        </action>
+        <!-- LMARIN 20130911 -->
+        
+       	<action path="/HistorialRequerimientos"
+        type="cl.gmo.pos.venta.web.actions.HistorialRequerimientosDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="historialRequerimientosForm">
+  	     	<forward name="historial_requerimientos" path="/jsp/reportes/historial_requerimientos.jsp"></forward>
+        </action>
+  
+        <!--  FIN -->
+        <action path="/FichaClientes"
+        type="cl.gmo.pos.venta.web.actions.FichaClientesDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="fichaClienteForm">
+        	<forward name="ficha_clientes" path="/jsp/reportes/ficha_cliente.jsp"></forward>
+        </action>
+         <action path="/ListadoTrabajosPendientes"
+        type="cl.gmo.pos.venta.web.actions.ListadoTrabajosPendientesDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="listadoTrabajosPendientesForm">
+        	<forward name="listado_trabajos_pendientes" path="/jsp/reportes/listado_trabajos_pendientes.jsp"></forward>
+        </action>
+     
+     	<action path="/InformeOptico"
+        type="cl.gmo.pos.venta.web.actions.InformeOpticoDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="informeOpticoForm">
+        	<forward name="informe_optico" path="/jsp/reportes/informe_optico.jsp"></forward>
+        </action>
+        
+        <action path="/InformeBusquedaProducto"
+        type="cl.gmo.pos.venta.web.actions.InformeBusquedaProductoDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="informeBusquedaProductoForm">
+        	<forward name="busqueda_general_articulos" path="/jsp/reportes/busqueda_general_articulos.jsp"/>
+        </action>
+        
+        <action path="/CopiaGuiaBoleta"
+        type="cl.gmo.pos.venta.web.actions.CopiaGuiaBoletaDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="copiaGuiaBoletaForm">
+        	<forward name="copiaGuiaBoleta" path="/jsp/reportes/copia_guia_boleta.jsp"/>
+        </action>
+        
+       <action path="/Devolucion"
+        type="cl.gmo.pos.venta.web.actions.DevolucionDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="devolucionForm">
+        	<forward name="devolucion" path="jsp/mantenedores/devolucion.jsp"/>
+        	<forward name="buscar_devolucion" path="jsp/mantenedores/busqueda_albaran.jsp"/>
+        	<forward name="mostrar_lista_albaranes" path="jsp/mantenedores/lista_albaranes.jsp"/>   
+        	<forward name="cargaAlbaranBuscado" path="/Devolucion.do?method=cargaAlbaranBuscado"/>        	
+        </action>
+        
+        <action path="/CambioFolio"
+        type="cl.gmo.pos.venta.web.actions.CambioFolioDispatchActions"
+        scope="request"
+        validate="false"
+        parameter="method"
+        name="cambioFolioForm">
+        	<forward name="cargarPagina" path="/jsp/mantenedores/cambioFolio.jsp"/>
+        	<forward name="ejemploAjax" path="/jsp/login/ejemploAjax.jsp"/>
+        	<forward name="ejemplo" path="/jsp/login/ejemploAjax.jsp"/>
+        </action>
+   </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="cl/gmo/pos/venta/web/resource/ApplicationResource"/>    
+
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

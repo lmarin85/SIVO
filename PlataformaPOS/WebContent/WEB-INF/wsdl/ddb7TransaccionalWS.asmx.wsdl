@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://wsnpqa.ddbseven.cl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://wsnpqa.ddbseven.cl">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://wsnpqa.ddbseven.cl">
+      <s:element name="SendTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="Transaction" type="tns:Transaction"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Transaction">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="Header" type="tns:Header"/>
+          <s:element maxOccurs="1" minOccurs="0" name="IdDoc" type="tns:IdDoc"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Emisor" type="tns:Emisor"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Receptor" type="tns:Receptor"/>
+          <s:element maxOccurs="unbounded" minOccurs="0" name="Detalle" type="tns:Detalle"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Totales" type="tns:Totales"/>
+          <s:element maxOccurs="1" minOccurs="0" name="DscRcgGlobal" type="tns:DscRcgGlobal"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Parametros" type="tns:Parametros"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Header">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="Fecha" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Hora" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="Local" type="s:int"/>
+          <s:element maxOccurs="1" minOccurs="1" name="Terminal" type="s:int"/>
+          <s:element maxOccurs="1" minOccurs="1" name="NumeroTransaccion" type="s:int"/>
+          <s:element maxOccurs="1" minOccurs="1" name="Token" nillable="true" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IdDoc">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="BLART" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ZNUMD" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ZARRI" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="WAERS" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="BLDAT" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ZHORA" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="BUDAT" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="BUPLA" type="s:int"/>
+          <s:element maxOccurs="1" minOccurs="0" name="TVORG" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="MWSKZ" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="VKONT" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Emisor">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="RUTEmisor" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="RznSocEmisor" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="GiroEmisor" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="CdgSIISucur" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="DirOrigen" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="CmnaOrigen" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="CiudadOrigen" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Receptor">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="RUTRecep" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="RznSocRecep" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Contacto" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="DirRecep" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="CmnaRecep" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="CiudadRecep" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Detalle">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="NroLinDet" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="ZCANT" type="s:int"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ZCODP" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ZCATE" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ZSUBC" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ZSEGM" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ZSUBS" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="BETRW" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="DESCUENTOMONTO" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ZIMAD" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Totales">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="MntNeto" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="TasaIVA" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="IVA" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="MntTotal" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DscRcgGlobal">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="NroLinDR" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="TpoMov" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="GlosaDR" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="TpoValor" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ValorDR" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Parametros">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="Monto_Escrito" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Neto" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Refer" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Especificaciones" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="SendTransactionResult" type="tns:Status"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Status">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="NROMENSAJE" type="s:int"/>
+          <s:element maxOccurs="1" minOccurs="0" name="MENSAJE" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendTransactionSoapIn">
+    <wsdl:part element="tns:SendTransaction" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SendTransactionSoapOut">
+    <wsdl:part element="tns:SendTransactionResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="ddb7TransaccionalWSSoap">
+    <wsdl:operation name="SendTransaction">
+      <wsdl:documentation>Servicio Web de Homologacion, consumidor de parametros para envio informacion a SAP</wsdl:documentation>
+      <wsdl:input message="tns:SendTransactionSoapIn"/>
+      <wsdl:output message="tns:SendTransactionSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ddb7TransaccionalWSSoap" type="tns:ddb7TransaccionalWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SendTransaction">
+      <soap:operation soapAction="http://wsnpqa.ddbseven.cl/SendTransaction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ddb7TransaccionalWSSoap12" type="tns:ddb7TransaccionalWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SendTransaction">
+      <soap12:operation soapAction="http://wsnpqa.ddbseven.cl/SendTransaction" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ddb7TransaccionalWS">
+    <wsdl:port binding="tns:ddb7TransaccionalWSSoap" name="ddb7TransaccionalWSSoap">
+      <soap:address location="http://wsnpqa.ddbseven.cl/ddb7TransaccionalWS.asmx"/>
+    </wsdl:port>
+    <wsdl:port binding="tns:ddb7TransaccionalWSSoap12" name="ddb7TransaccionalWSSoap12">
+      <soap12:address location="http://wsnpqa.ddbseven.cl/ddb7TransaccionalWS.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
